@@ -2,8 +2,15 @@
   (tweets)="createTweets($event)"
   (loading)="loading = $event"
   (empty)="empty = $event"
+  (word)="word = $event"
 ></app-search>
-<div class="container">
+
+<div
+  class="container"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  (scrolled)="onScroll()"
+>
   <div class="loading" *ngIf="loading">
     <i class="fas fa-spinner fa-spin"></i>
   </div>
@@ -16,5 +23,8 @@
         <app-card [tweet]="tweet"></app-card>
       </div>
     </ng-container>
+  </div>
+  <div class="loadingScroll" *ngIf="loadingScroll">
+    <i class="fas fa-spinner fa-spin"></i>
   </div>
 </div>

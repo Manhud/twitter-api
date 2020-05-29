@@ -12,8 +12,8 @@ export class TwitterApiService {
   }
   
   
-  searchTweets(query){
-    return this.http.get(`https://twitter-backend1.herokuapp.com/search/${query}`).pipe(
+  searchTweets(query, counter?){
+    return this.http.post(`https://twitter-backend1.herokuapp.com/search/${query}`, {count: counter}).pipe(
       pluck('data', 'statuses')
     )
   }

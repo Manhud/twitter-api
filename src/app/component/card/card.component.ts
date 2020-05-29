@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TwitterApiService } from '../../services/twitter-api.service';
 
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -11,7 +12,10 @@ export class CardComponent implements OnInit {
   public favorite: boolean;
   public open = false;
 
-  constructor(private twitterService: TwitterApiService) {}
+  constructor(
+    private twitterService: TwitterApiService,
+  ) {
+  }
 
   ngOnInit(): void {
     this.getInfoTweet();
@@ -27,10 +31,13 @@ export class CardComponent implements OnInit {
 
   openBox(e) {
     this.open = !this.open;
-    console.log(e.path);
     this.open === true
       ? (e.path[1].style.height = '200px')
       : (e.path[1].style.height = '');
+  }
+
+  shared() {
+  
   }
 
   favoriteTweet(id) {
@@ -38,8 +45,7 @@ export class CardComponent implements OnInit {
     if (this.favorite) {
       this.twitterService.desfavoriteTweet(favorite).subscribe(
         (res: any) => {
-            this.favorite = false;
-          
+          this.favorite = false;
         },
         (error) => {
           console.log(error);

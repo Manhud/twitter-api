@@ -6,7 +6,9 @@ import { SearchComponent } from './component/search/search.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TwitterApiService } from './services/twitter-api.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+
 
 @NgModule({
   declarations: [
@@ -17,9 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     CommonModule,
+    InfiniteScrollModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   providers: [TwitterApiService],
   bootstrap: [AppComponent]

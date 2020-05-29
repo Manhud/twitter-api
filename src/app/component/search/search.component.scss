@@ -1,3 +1,15 @@
+ input:focus{
+    outline: none;
+}
+
+.text-error{
+    color: red;
+}
+.input-error{
+    color: red;
+    border: solid 1px red!important;
+}
+
 .m3{
     margin-bottom: 30px;
 }
