@@ -1,12 +1,19 @@
 .card{
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+}
+
+.principal-content{
+    text-align: center; 
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 @media screen and (min-width: 480px) {
   .principal-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .card {
     
