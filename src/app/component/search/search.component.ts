@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private _service: TwitterApiService, private fb: FormBuilder) {
     this.form = fb.group({
-      search: ['', Validators.pattern('[A-Za-z0-9]{1,15}')]
+      search: ['', Validators.pattern('[a-z A-Z áãâäàéêëèíîïìóõôöòúûüùçñ 0-9]+')]
     });
   }
 

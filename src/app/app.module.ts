@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { TwitterApiService } from './services/twitter-api.service';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
   imports: [
     BrowserModule,
     CommonModule,
+    BrowserAnimationsModule,
     InfiniteScrollModule,
     FormsModule,
     ReactiveFormsModule,
