@@ -57,6 +57,7 @@ export class CardComponent implements OnInit {
   getInfoTweet() {
     this.twitterService.getTweet(this.tweet.id_str).subscribe((res) => {
       if (res[0].favorited) {
+        console.log(this.favorite);
         this.favorite = true;
       }
     });
