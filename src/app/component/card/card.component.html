@@ -1,22 +1,23 @@
-
 <div class="section-card">
   <div class="card">
     <div class="card-header">
       <img [src]="tweet.user?.profile_image_url_https" alt="" />
       <div class="title">
-        <h2>{{tweet.user?.name}}</h2>
-        <p>@{{tweet.user?.screen_name}}</p>
+        <h2>{{ tweet.user?.name }}</h2>
+        <p>@{{ tweet.user?.screen_name }}</p>
       </div>
     </div>
     <div class="card-body">
-      <p>
-        {{tweet.full_text | slice : 0:60}} ... 
-      </p>
+      <p>{{ tweet.full_text | slice: 0:60 }} ...</p>
     </div>
     <div class="card-footer">
       <i (click)="shared()" class="fas fa-share"></i>
       <i class="fas fa-retweet"></i>
-      <i (click)="favoriteTweet(tweet.id_str)" class="fas fa-star" [ngStyle]="{'color': favorite  ? '#e0255e' : '#808080' }"></i>
+      <i
+        (click)="favoriteTweet(tweet.id_str)"
+        class="fas fa-star"
+        [ngStyle]="{ color: favorite ? '#e0255e' : '#808080' }"
+      ></i>
     </div>
 
     <div class="picture"></div>
@@ -24,18 +25,19 @@
 
   <div class="scroll-section">
     <img src="assets/logo.png" alt="" />
-    <div class="scroll" [@openClose]="open ? 'open' : 'closed'" >
-      <ng-container>
-        <div class="scroll-body fade-in" *ngIf="open">
-          <p class="time"> {{tweet.created_at | date}}</p>
-          <p class="tweet">
-            {{tweet.full_text}}
-          </p>
-        </div>
-        <p (click)="openBox($event)" *ngIf="!open">... más</p>
-        <i [@flip]="open" (click)="openBox($event)" class="fas fa-chevron-down" style="align-self: flex-end"></i>
-      </ng-container>
-      
+    <div class="scroll" [@openClose]="open ? 'open' : 'closed'">
+      <div class="scroll-body fade-in" *ngIf="open">
+        <p class="time">{{ tweet.created_at | date }}</p>
+        <p class="tweet">
+          {{ tweet.full_text }}
+        </p>
+      </div>
+      <p (click)="openBox($event)" *ngIf="!open">... más</p>
+      <i
+        [@flip]="open"
+        (click)="openBox($event)"
+        class="fas fa-chevron-down arrow"
+      ></i>
     </div>
   </div>
 </div>

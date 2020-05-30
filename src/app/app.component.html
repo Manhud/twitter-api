@@ -7,9 +7,7 @@
 
 <div
   class="container"
-  infiniteScroll
-  [infiniteScrollDistance]="2"
-  (scrolled)="onScroll()"
+  
 >
   <div class="loading" *ngIf="loading">
     <i class="fas fa-spinner fa-spin"></i>
@@ -17,7 +15,10 @@
   <div class="loading" *ngIf="empty">
     <p>No hay información</p>
   </div>
-  <div class="principal-content" *ngIf="!loading">
+  <div infiniteScroll
+  [infiniteScrollDistance]="1"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()" class="principal-content" *ngIf="!loading">
     <ng-container *ngFor="let tweet of tweets">
       <div class="card">
         <app-card [tweet]="tweet"></app-card>

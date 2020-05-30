@@ -16,8 +16,6 @@ h2 {
   width: 260px;
   max-width: 100%;
   position: relative;
-
-  
 }
 
 .card {
@@ -74,7 +72,7 @@ h2 {
   }
 }
 
-.scroll-section{
+.scroll-section {
   display: flex;
   right: 5%;
   justify-content: center;
@@ -100,38 +98,37 @@ h2 {
     border-bottom-left-radius: 10px;
     box-shadow: 0 4px 2px -2px rgba(211, 211, 211, 1);
     transition: linear;
-    transition-duration: .25s;
-  
-   
-  
-    p, i{
+    transition-duration: 0.25s;
+
+    p,
+    i {
       padding-right: 10px;
       color: white;
       cursor: pointer;
     }
-  
-    .top-arrow{
+
+    i {
+      align-self: flex-end;
+      margin-bottom: 5px;
+    }
+
+    .top-arrow {
       position: absolute;
       bottom: 0;
       margin-bottom: 10px;
     }
 
-    .scroll-body{
+    .scroll-body {
       position: absolute;
-      .time{
+      .time {
         border-top: 1px solid white;
         padding: 4px 0;
         border-bottom: 1px solid white;
       }
-      .tweet{
+      .tweet {
         padding: 10px 10px;
         text-align: left;
       }
-      
     }
+  }
 }
-
-  
-  
-}
-
