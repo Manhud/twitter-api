@@ -27,13 +27,24 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
         animate('250ms')
       ]),
     ]),
+    trigger('animation', [
+      state('open', style({
+        backgroundPosition:'-3519px 0',
+        transition: 'background 1s steps(55)'
+      })),
+      state('closed', style({
+        backgroundPosition:'0 0',
+        transition: 'background 1s steps(55)'
+      }))
+    ])
   ]
 })
 export class CardComponent implements OnInit {
   @Input() tweet;
   public favorite: boolean;
   public open = false;
-
+  public animated = false;
+  
   constructor(
     private twitterService: TwitterApiService,
   ) {
@@ -68,9 +79,7 @@ export class CardComponent implements OnInit {
     if (this.favorite) {
       this.twitterService.desfavoriteTweet(favorite).subscribe(
         (res: any) => {
-          e.path[0].classList.remove('animation-on')
-          e.path[0].classList.add('animation-off')
-
+          this.animated = false;
           this.favorite = false;
         },
         (error) => {
@@ -81,8 +90,9 @@ export class CardComponent implements OnInit {
       this.twitterService.favoriteTweet(favorite).subscribe(
         (res: any) => {
           if (res.statusCode === 200) {
-            e.path[0].classList.remove('animation-off')
-            e.path[0].classList.add('animation-on')
+            this.animated = true;
+
+
             this.favorite = true;
           }
         },
