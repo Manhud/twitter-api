@@ -15,8 +15,9 @@
     </div>
     <div class="card-footer">
       <i (click)="shared()" class="fas fa-share"></i>
-      <i class="fas fa-retweet"></i>
-      <i (click)="favoriteTweet(tweet.id_str)" class="fas fa-star" [ngStyle]="{'color': favorite  ? '#e0255e' : '#808080' }"></i>
+      <i class="fas fa-retweet retweet" ></i>
+      <section (click)="favoriteTweet(tweet.id_str,$event)" class="fave"></section>
+      <!-- <i (click)="favoriteTweet(tweet.id_str, $event)" class="fas fa-star" [ngStyle]="{'color': favorite  ? '#e0255e' : '#808080' }"></i> -->
     </div>
 
     <div class="picture"></div>

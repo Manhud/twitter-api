@@ -62,11 +62,15 @@ export class CardComponent implements OnInit {
   
   }
 
-  favoriteTweet(id) {
+
+  favoriteTweet(id, e) {
     const favorite = { id };
     if (this.favorite) {
       this.twitterService.desfavoriteTweet(favorite).subscribe(
         (res: any) => {
+          e.path[0].classList.remove('animation-on')
+          e.path[0].classList.add('animation-off')
+
           this.favorite = false;
         },
         (error) => {
@@ -77,6 +81,8 @@ export class CardComponent implements OnInit {
       this.twitterService.favoriteTweet(favorite).subscribe(
         (res: any) => {
           if (res.statusCode === 200) {
+            e.path[0].classList.remove('animation-off')
+            e.path[0].classList.add('animation-on')
             this.favorite = true;
           }
         },
