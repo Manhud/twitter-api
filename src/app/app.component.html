@@ -17,7 +17,7 @@
   <div infiniteScroll
   [infiniteScrollDistance]="1"
   [infiniteScrollThrottle]="50"
-  (scrolled)="onScroll()" class="principal-content" *ngIf="!loading">
+  (scrolled)="onScroll()" class="principal-content animate__animated animate__fadeIn" *ngIf="!loading">
     <ng-container *ngFor="let tweet of tweets">
       <div class="card">
         <app-card [tweet]="tweet"></app-card>
