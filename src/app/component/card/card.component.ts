@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TwitterApiService } from '../../services/twitter-api.service';
 import { trigger, state, transition, style, animate } from '@angular/animations';
 
@@ -41,8 +41,9 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 })
 export class CardComponent implements OnInit {
   @Input() tweet;
+  @Output() open: EventEmitter<boolean> = new EventEmitter<boolean>(); 
+  public expanded = false;
   public favorite: boolean;
-  public open = false;
   public animated = false;
   
   constructor(
@@ -64,7 +65,9 @@ export class CardComponent implements OnInit {
   }
 
   openBox(e) {
-    this.open = !this.open;
+    this.expanded = !this.expanded;
+    this.open.emit(this.expanded);
+
     // this.open === true
     //   ? (e.path[1].style.height = '200px')
     //   : (e.path[1].style.height = '');

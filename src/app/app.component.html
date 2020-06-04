@@ -20,7 +20,7 @@
   (scrolled)="onScroll()" class="principal-content animate__animated animate__fadeIn" *ngIf="!loading">
     <ng-container *ngFor="let tweet of tweets">
       <div class="card">
-        <app-card [tweet]="tweet"></app-card>
+        <app-card open [tweet]="tweet"></app-card>
       </div>
     </ng-container>
   </div>

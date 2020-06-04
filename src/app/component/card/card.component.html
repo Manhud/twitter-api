@@ -25,15 +25,15 @@
 
   <div class="scroll-section">
     <img src="assets/logo.png" alt="" />
-    <div class="scroll" [@openClose]="open ? 'open' : 'closed'" >
-        <div class="scroll-body fade-in" *ngIf="open">
+    <div class="scroll" [@openClose]="expanded ? 'open' : 'closed'" >
+        <div class="scroll-body fade-in" *ngIf="expanded">
           <p class="time"> {{tweet.created_at | date}}</p>
           <p class="tweet">
             {{tweet.full_text}}
           </p>
         </div>
-        <p (click)="openBox($event)" *ngIf="!open">... más</p>
-        <i [@flip]="open" (click)="openBox($event)" class="fas fa-chevron-down"></i>
+        <p (click)="openBox($event)" *ngIf="!expanded">... más</p>
+        <i [@flip]="expanded" (click)="openBox($event)" class="fas fa-chevron-down"></i>
       
     </div>
   </div>
